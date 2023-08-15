@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+</head>
+<body>
+<form method="get" onsubmit="return validateForm()">
+  <span>Name</span> <input type="text" name="pname" id="pname"><br>
+  <span>Price</span> <input type="number" name="price" id="price"><br>
+  <input type="submit" value="Submit">
+</form>
+<script>
+function validateForm() {
+  var name = document.getElementById("pname").value;
+  var price = parseFloat(document.getElementById("price").value);
+  if (name.length < 2 || name.length > 15 || !/^[A-Za-z]+$/.test(name)) {
+    alert("Name should be between 2 and 15 characters and contain only English alphabets.");
+    return false;
+  }
+  if (price < 0) {
+    alert("Price cannot be negative.");
+    return false;
+  }
+  return true;
+}
+</script>
+</body>
+</html>
